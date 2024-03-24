@@ -15,3 +15,5 @@ router.get("/category/:id", CategoryController.getCategoryDetails);
 //items
 router.get("/items", ItemController.getItems);
 router.get("/item/:id", ItemController.getItemDetails);
+
+export default router;
