@@ -14,9 +14,12 @@ const itemSchema = new Schema({
   },
   category: {
     type: mongoose.Types.ObjectId,
+    ref: "Category",
   },
   price: Number,
   stock: Number,
+  image: String,
+  image_id: String,
 });
 
 itemSchema.virtual("url").get(function () {

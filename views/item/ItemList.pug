@@ -1,0 +1,18 @@
+extends ../HomePage 
+
+block content
+    div(class="p-8 w-full")
+        div(class="flex flex-row justify-between items-center")
+            h1(class="text-4xl") Items
+            a(href="/items/create")
+                button(class="px-4 py-2 bg-sky-600 text-white rounded-md") Create   
+        div(class="items grid grid-cols-3 gap-8 mt-8")
+            if items.length > 0
+                each item in items
+                    a(href=item.url) 
+                        div(class="item text-center flex flex-col justify-center items-center border-2 border-solid border-black rounded-md p-8 h-full")
+                            span= item.name 
+                            span(class="uppercase")= item.category.name 
+                            span= `$${item.price}`
+            else 
+                h1 There are no items

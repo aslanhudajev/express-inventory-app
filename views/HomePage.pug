@@ -4,4 +4,12 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Inventory
-    body 
+        link(rel="stylesheet" href="/styling/styles.css")
+    body(class="flex flex-row")
+        section(class="sidebar flex flex-col p-8") 
+            div(class="flex flex-col")
+                h1(class="text-2xl") Menu
+                a(href="/items") Items 
+                a(href="/categories") Categories  
+        main(class="flex flex-col flex-grow")
+            block content

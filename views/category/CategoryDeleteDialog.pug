@@ -3,14 +3,14 @@ extends ../HomePage
 block content
     div(class="p-8 w-full")
         div(class="flex flex-row justify-between items-center")
-            h1(class="uppercase text-4xl")= category.name
+            div(class="flex flex-col")
+                h1(class="text-2xl")= `Are you sure you want to delete ${category.name}?`
+                p All the items in this category will also be deleted
             div(class="flex flex-row gap-4")
-                a(href=`${category.url}/update`)
-                    button(class="px-4 py-2 bg-sky-600 text-white rounded-md") Edit 
-                a(href=`${category.url}/delete`)
-                    button(class="px-4 py-2 bg-sky-600 text-white rounded-md") Delete category 
-                a(href=`${category.url}/deleteItems`)
-                    button(class="px-4 py-2 bg-sky-600 text-white rounded-md") Delete all items 
+                form(method="POST")
+                    button(class="px-4 py-2 bg-slate-600 text-white rounded-md") Delete 
+                a(href=`${category.url}`)
+                    button(class="px-4 py-2 bg-sky-600 text-white rounded-md") Cancel 
                     
 
         div(class="items grid grid-cols-3 mt-8")
@@ -19,7 +19,7 @@ block content
                     a(href=item.url) 
                         div(class="item text-center flex flex-col justify-center items-center border-2 border-solid border-black rounded-md p-8 h-full")
                             span= item.name 
-                            span(class="uppercase")= category.name 
-                            span= `$${item.price}`
+                            span= item.category.name 
+                            span= item.price
             else 
                 h1 There are no items in this category

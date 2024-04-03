@@ -1,0 +1,18 @@
+extends ../HomePage
+
+block content 
+    div(class="p-8 w-full") 
+        h1(class="text-4xl")= `Are you sure you want to delete ${item.name}?`
+
+        div(class="item flex flex-col gap-4 mt-8")
+            h2= `$${item.price}`
+            span= `Stock: ${item.stock}`
+            span(class="capitalize")= `Category: ${item.category.name}`
+            p= item.description 
+            br
+            br
+            div(class="flex flex-row gap-4")
+                form(method="post") 
+                    button(type="submit" class="px-4 py-2 bg-slate-600 text-white rounded-md") Delete 
+                a(href=`${item.url}`)
+                    button(class="px-4 py-2 bg-sky-600 text-white rounded-md") Cancel 
